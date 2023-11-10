@@ -21,22 +21,50 @@ public class Controller {
     }
 
     @GetMapping("/plus")
-    public String calculatePlus(@RequestParam int num1, @RequestParam int num2) {
-        return serviceImpl.calculatePlus(num1, num2);
+    public String calculatePlus(
+            @RequestParam (required = false) Integer num1,
+            @RequestParam (required = false) Integer num2)
+        {
+        if (num1 == null || num2 == null) {
+            return "Введите оба значения!";
+        } else {
+            return serviceImpl.calculatePlus(num1, num2);
+        }
     }
 
     @GetMapping("/minus")
-    public String calculateMinus(@RequestParam int num1, @RequestParam int num2) {
-        return serviceImpl.calculateMinus(num1, num2);
+    public String calculateMinus(
+            @RequestParam (required = false) Integer num1,
+            @RequestParam (required = false) Integer num2)
+    {
+        if (num1 == null || num2 == null) {
+            return "Введите оба значения!";
+        } else {
+            return serviceImpl.calculateMinus(num1, num2);
+        }
     }
 
     @GetMapping("/multiply")
-    public String calculateMultiply(@RequestParam int num1, @RequestParam int num2) {
-        return serviceImpl.calculateMultiply(num1, num2);
+    public String calculateMultiply(
+            @RequestParam (required = false) Integer num1,
+            @RequestParam (required = false) Integer num2)
+    {
+        if (num1 == null || num2 == null) {
+            return "Введите оба значения!";
+        } else {
+            return serviceImpl.calculateMultiply(num1, num2);
+        }
     }
 
     @GetMapping("/divide")
-    public String calculateDivide(@RequestParam int num1, @RequestParam int num2){
-        return serviceImpl.calculateDivide(num1, num2);
+    public String calculateDivide(
+            @RequestParam (required = false) Integer num1,
+            @RequestParam (required = false) Integer num2)
+    {
+        if (num1 == null || num2 == null) {
+            return "Введите оба значения!";
+        } else {
+            return serviceImpl.calculateDivide(num1, num2);
+        }
     }
 }
