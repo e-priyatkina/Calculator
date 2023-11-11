@@ -7,17 +7,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/calculator")
-public class Controller {
+public class CalculatorController {
 
-    private final ServiceImpl serviceImpl;
+    private final CalculatorServiceImpl calculatorServiceImpl;
 
-    public Controller(ServiceImpl serviceImpl) {
-        this.serviceImpl = serviceImpl;
+    public CalculatorController(CalculatorServiceImpl calculatorServiceImpl) {
+        this.calculatorServiceImpl = calculatorServiceImpl;
     }
 
     @GetMapping
     public String hello() {
-        return serviceImpl.hello();
+        return calculatorServiceImpl.hello();
     }
 
     @GetMapping("/plus")
@@ -28,7 +28,7 @@ public class Controller {
         if (num1 == null || num2 == null) {
             return "Введите оба значения!";
         } else {
-            return serviceImpl.calculatePlus(num1, num2);
+            return num1 + " + " + num2 + " = " + calculatorServiceImpl.calculatePlus(num1, num2);
         }
     }
 
@@ -40,7 +40,7 @@ public class Controller {
         if (num1 == null || num2 == null) {
             return "Введите оба значения!";
         } else {
-            return serviceImpl.calculateMinus(num1, num2);
+            return num1 + " - " + num2 + " = " + calculatorServiceImpl.calculateMinus(num1, num2);
         }
     }
 
@@ -52,7 +52,7 @@ public class Controller {
         if (num1 == null || num2 == null) {
             return "Введите оба значения!";
         } else {
-            return serviceImpl.calculateMultiply(num1, num2);
+            return num1 + " * " + num2 + " = " + calculatorServiceImpl.calculateMultiply(num1, num2);
         }
     }
 
@@ -63,8 +63,10 @@ public class Controller {
     {
         if (num1 == null || num2 == null) {
             return "Введите оба значения!";
+        } else if (num2 == 0) {
+            return "На ноль делить нельзя!";
         } else {
-            return serviceImpl.calculateDivide(num1, num2);
+            return num1 + " / " + num2 + " = " + calculatorServiceImpl.calculateDivide(num1, num2);
         }
     }
 }
