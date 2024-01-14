@@ -9,5 +9,10 @@ public interface CalculatorService {
 
     int calculateMultiply(int a, int b);
 
-    float calculateDivide(int a, int b);
+    default float calculateDivide(int a, int b) {
+        if (b == 0) {
+            throw new IllegalArgumentException("На ноль делить нельзя");
+        }
+        return (float) a / b;
+    }
 }

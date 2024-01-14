@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/calculator")
 public class CalculatorController {
 
-    private final CalculatorServiceImpl calculatorServiceImpl;
+    private final CalculatorService calculatorService;
 
-    public CalculatorController(CalculatorServiceImpl calculatorServiceImpl) {
-        this.calculatorServiceImpl = calculatorServiceImpl;
+    public CalculatorController(CalculatorService calculatorService) {
+        this.calculatorService = calculatorService;
     }
 
     @GetMapping
     public String hello() {
-        return calculatorServiceImpl.hello();
+        return calculatorService.hello();
     }
 
     @GetMapping("/plus")
@@ -28,7 +28,7 @@ public class CalculatorController {
         if (num1 == null || num2 == null) {
             return "Введите оба значения!";
         } else {
-            return num1 + " + " + num2 + " = " + calculatorServiceImpl.calculatePlus(num1, num2);
+            return num1 + " + " + num2 + " = " + calculatorService.calculatePlus(num1, num2);
         }
     }
 
@@ -40,7 +40,7 @@ public class CalculatorController {
         if (num1 == null || num2 == null) {
             return "Введите оба значения!";
         } else {
-            return num1 + " - " + num2 + " = " + calculatorServiceImpl.calculateMinus(num1, num2);
+            return num1 + " - " + num2 + " = " + calculatorService.calculateMinus(num1, num2);
         }
     }
 
@@ -52,7 +52,7 @@ public class CalculatorController {
         if (num1 == null || num2 == null) {
             return "Введите оба значения!";
         } else {
-            return num1 + " * " + num2 + " = " + calculatorServiceImpl.calculateMultiply(num1, num2);
+            return num1 + " * " + num2 + " = " + calculatorService.calculateMultiply(num1, num2);
         }
     }
 
@@ -63,10 +63,8 @@ public class CalculatorController {
     {
         if (num1 == null || num2 == null) {
             return "Введите оба значения!";
-        } else if (num2 == 0) {
-            return "На ноль делить нельзя!";
         } else {
-            return num1 + " / " + num2 + " = " + calculatorServiceImpl.calculateDivide(num1, num2);
+            return num1 + " / " + num2 + " = " + calculatorService.calculateDivide(num1, num2);
         }
     }
 }
