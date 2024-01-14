@@ -24,6 +24,7 @@ public class CalculatorServiceTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
     public void minus() {
         int a = 1;
         int b = 1;
@@ -40,6 +41,7 @@ public class CalculatorServiceTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
     public void multiplay() {
         int a = 1;
         int b = 1;
@@ -56,6 +58,7 @@ public class CalculatorServiceTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
     public void pozitiveDivide() {
         int a = 1;
         int b = 1;
@@ -72,6 +75,7 @@ public class CalculatorServiceTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
     public void negativeDivide() {
         int a= 1;
         int b = 0;
