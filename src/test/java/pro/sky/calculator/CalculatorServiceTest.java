@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class CalculatorServiceTest {
 
-    private final CalculatorService calculatorService = new CalculatorService();
+    private final CalculatorServiceImpl calculatorServiceImpl = new CalculatorServiceImpl();
 
     @Test
     public void plus() {
@@ -13,14 +13,14 @@ public class CalculatorServiceTest {
         int b = 1;
 
         int expected = 2;
-        int actual = calculatorService.calculatePlus(a, b);
+        int actual = calculatorServiceImpl.calculatePlus(a, b);
         Assertions.assertEquals(expected, actual);
 
         a = 2;
         b = -1;
 
         expected = 1;
-        actual = calculatorService.calculatePlus(a, b);
+        actual = calculatorServiceImpl.calculatePlus(a, b);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -30,14 +30,14 @@ public class CalculatorServiceTest {
         int b = 1;
 
         int expected = 0;
-        int actual = calculatorService.calculatePlus(a, b);
+        int actual = calculatorServiceImpl.calculateMinus(a, b);
         Assertions.assertEquals(expected, actual);
 
         a = 2;
         b = -1;
 
         expected = 3;
-        actual = calculatorService.calculatePlus(a, b);
+        actual = calculatorServiceImpl.calculateMinus(a, b);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -47,14 +47,14 @@ public class CalculatorServiceTest {
         int b = 1;
 
         int expected = 1;
-        int actual = calculatorService.calculatePlus(a, b);
+        int actual = calculatorServiceImpl.calculateMultiply(a, b);
         Assertions.assertEquals(expected, actual);
 
         a = 2;
         b = -1;
 
         expected = -2;
-        actual = calculatorService.calculatePlus(a, b);
+        actual = calculatorServiceImpl.calculateMultiply(a, b);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -63,15 +63,15 @@ public class CalculatorServiceTest {
         int a = 1;
         int b = 1;
 
-        int expected = 1;
-        int actual = calculatorService.calculatePlus(a, b);
+        float expected = 1.0F;
+        float actual = calculatorServiceImpl.calculateDivide(a, b);
         Assertions.assertEquals(expected, actual);
 
         a = 2;
         b = -1;
 
-        expected = -2;
-        actual = calculatorService.calculatePlus(a, b);
+        expected = -2.0F;
+        actual = calculatorServiceImpl.calculateDivide(a, b);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -80,6 +80,6 @@ public class CalculatorServiceTest {
         int a= 1;
         int b = 0;
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> calculatorService.calculateDivide(a, b));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> calculatorServiceImpl.calculateDivide(a, b));
     }
 }

@@ -27,6 +27,9 @@ public class CalculatorServiceImpl implements CalculatorService {
 
     @Override
     public float calculateDivide(int a, int b) {
+        if (b == 0) {
+            throw new DivByZeroException("На ноль делить нельзя");
+        }
         return (float) a / b;
     }
 }
